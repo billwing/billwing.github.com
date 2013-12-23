@@ -13,43 +13,31 @@
 
 <p>Seajs Test</p>
 <p>
-    去掉seajs-combo.js就能正常显示Confirmbox
+    没找到是哪个具名模块的影响，导致flush后报错……
 </p>
 <p>
-    发现这几个组件也有类似的问题：autocomplete, dialog, popup, select
-</p>
-<p>
-    2013-12-10 21:06 <br>
-    问题已解决：<a href="https://github.com/seajs/seajs-combo/issues/7">https://github.com/seajs/seajs-combo/issues/7</a>
+    发现这几个组件也是一样的问题：autocomplete, dialog, confirmbox, select，难道是handlebars模板文件的问题……
 </p>
 
-<script id="seajsnode" src="http://s.n6n6.cn/Js/??seajs/2.1.1/sea.js,seajs/2.1.1/seajs-text.js,seajs/2.1.1/seajs-style.js,seajs/2.1.1/seajs-combo.js"></script>
+<script id="seajsnode" src="http://s.n8n8.cn/Js/??seajs/2.1.1/sea.js,seajs/2.1.1/seajs-text.js,seajs/2.1.1/seajs-style.js"></script>
+<script src="http://s.n8n8.cn/Js/??seajs/2.1.1/seajs-combo.js"></script>
+<script src="http://s.n8n8.cn/Js/??seajs/2.1.1/seajs-flush.js"></script>
+<script src="http://s.n8n8.cn/Js/??common/config/2.1.1/config.min.js"></script>
 <script>
-    seajs.config({
-        alias: {
-            '$': 'core/jquery/1.8.3/jquery',
-            'widget': 'lib/widget/1.1.1/widget',
-            'iframe-shim': 'lib/iframe-shim/1.0.2/iframe-shim',
-            'position': 'lib/position/1.0.1/position',
-            'handlebars': 'gallery/handlebars/1.0.2/handlebars',
-            'seajs-debug': 'seajs/2.1.1/seajs-debug'
-        },
 
-        debug: true
-    });
-
-    seajs.use(['lib/dialog/1.2.1/confirmbox'], function(Confirmbox) {
+    seajs.use(['$', 'confirmbox'], function($, Confirmbox){
         Confirmbox.alert('提示内容~', function() {}, {
             afterHide: function() {
                 alert('提示已关闭~');
             },
             title: '提示信息',
-            closeTpl: '×'
+            closeTpl: '×',
+            hideOnClick: true
         });
     });
 
     // The combined request
-    //seajs.flush();
+    seajs.flush();
 </script>
 
 </body>
