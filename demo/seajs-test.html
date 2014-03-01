@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Seajs Test</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width" />
+</head>
+
+<body>
+
+<p>Seajs Test</p>
+<p>
+    没找到是哪个具名模块的影响，导致flush后报错……
+</p>
+<p>
+    发现这几个组件也是一样的问题：autocomplete, dialog, confirmbox, select，难道是handlebars模板文件的问题……
+</p>
+
+<script id="seajsnode" src="http://s.n8n8.cn/Js/??seajs/2.1.1/sea.js,seajs/2.1.1/seajs-text.js,seajs/2.1.1/seajs-style.js"></script>
+<script src="http://s.n8n8.cn/Js/??seajs/2.1.1/seajs-combo.js"></script>
+<script src="http://s.n8n8.cn/Js/??seajs/2.1.1/seajs-flush.js"></script>
+<script src="http://s.n8n8.cn/Js/??common/config/2.1.1/config.min.js"></script>
+<script>
+
+    seajs.use(['$', 'confirmbox'], function($, Confirmbox){
+        Confirmbox.alert('提示内容~', function() {}, {
+            afterHide: function() {
+                alert('提示已关闭~');
+            },
+            title: '提示信息',
+            closeTpl: '×',
+            hideOnClick: true
+        });
+    });
+
+    // The combined request
+    seajs.flush();
+</script>
+
+</body>
+</html>
