@@ -1,4 +1,4 @@
-define("/examples/statics/js/tpl/information/1.0.0/information", ["$", "widget", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "calendar", "address", "avatar"], function(require, exports, module) {
+define("tpl/information/1.0.0/information", ["$", "widget", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "calendar", "address", "avatar"], function(require, exports, module) {
 
     var $ = require('$');
 

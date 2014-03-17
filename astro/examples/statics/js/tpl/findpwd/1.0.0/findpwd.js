@@ -1,4 +1,4 @@
-define("/examples/statics/js/tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules", "mobilecode"], function(require, exports, module) {
+define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules", "mobilecode"], function(require, exports, module) {
 
     var $ = require('$');
 

@@ -75,9 +75,9 @@ seajs.config({
     },
 
     // 路径配置
-    /*paths: {
-        'dialogTplUrl': 'http://' + location.host + '/js/lib/dialog/1.1.2'
-    },*/
+    paths: {
+        'tpl': '../../statics/js/tpl/'
+    },
 
     // 变量配置
     /*vars: {
