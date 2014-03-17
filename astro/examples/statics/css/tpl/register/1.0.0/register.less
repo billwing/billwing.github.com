@@ -5,7 +5,7 @@
  * @overview: 用户注册模板
  * @author: tbrweb@gmail.com
  * @create: 2014-03-11
- * @revise: 2014-03-12
+ * @revise: 2014-03-17
  */
 
 // Base url
@@ -15,11 +15,17 @@
 // Global less
 @import "@{cssUrl}/tpl/common/1.0.0/global.less";
 
+// Autocomplete
+@import "@{cssUrl}/js/autocomplete/autocomplete.less";
+
 /*
  * @name: global
  * @overview: 页面全局
  * @require: null
  */
+.ui-autocomplete-item {
+	width: 168px;
+}
 
 /*
  * @name: tpl-register

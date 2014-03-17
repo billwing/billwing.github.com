@@ -20,22 +20,32 @@ define("tpl/login/1.0.0/login", ["$", "dialog", "confirmbox", "util", "urlconfig
     // 登录验证
     var loginForm = $('#J-loginForm');
     if(loginForm.length) {
-	    var LoginCheck = new ValidatorRules({
+	    var loginVal = new ValidatorRules({
 	        element: loginForm,
 	        autoSubmit: false
 	    });
-	    LoginCheck.addItem({
+
+	    exports.loginVal = loginVal;
+
+	    loginVal.addItem({
 	        element: '[name=account]',
 	        required: true,
 	        display: '账号',
 	        rule: 'loginAccount'
 	    });
-	    LoginCheck.addItem({
+	    loginVal.addItem({
 	        element: '[name=pwd]',
 	        required: true,
 	        display: '密码',
 	        rule: 'password'
 	    });
+	    if(loginForm.find('[name=img_code]').length) {
+	        loginVal.addItem({
+	            element: '[name=img_code]',
+	            required: true,
+	            rule: 'imgCode'
+	        });
+	    }
 
 	    loginForm.submit(function() {
 	    	Util.userAsync($(this), UrlConfig.login_url);

@@ -21,6 +21,9 @@ define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules",
             element: findPwdMailForm,
             autoSubmit: false
         });
+
+        exports.findPwdMailVal = findPwdMailVal;
+
         if(findPwdMailForm.find('[name=account]').length) {
 	        findPwdMailVal.addItem({
 	            element: '[name=account]',
@@ -55,6 +58,7 @@ define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules",
                 rule: 'imgCode'
             });
         }
+
         findPwdMailForm.submit(function() {
             Util.userAsync($(this), UrlConfig.findPwdByEmail_url);
         });
@@ -67,6 +71,9 @@ define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules",
             element: findPwdMobiForm,
             autoSubmit: false
         });
+
+        exports.findPwdMobiVal = findPwdMobiVal;
+
         if(findPwdMobiForm.find('[name=account]').length) {
 	        findPwdMobiVal.addItem({
 	            element: '[name=account]',
@@ -94,6 +101,7 @@ define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules",
             required: true,
             rule: 'confirmation{target: "#J-findPwdMobiNew"}'
         });
+        
         findPwdMobiForm.submit(function() {
             Util.userAsync($(this), UrlConfig.resetPwdByMobile_url);
         });
@@ -106,6 +114,9 @@ define("tpl/findpwd/1.0.0/findpwd", ["$", "util", "urlconfig", "validatorrules",
             element: findPwdResetForm,
             autoSubmit: false
         });
+
+        exports.findPwdResetVal = findPwdResetVal;
+
         findPwdResetVal.addItem({
             element: '[name=eml_code]',
             required: true,

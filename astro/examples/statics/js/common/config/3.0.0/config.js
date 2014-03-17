@@ -69,6 +69,13 @@ seajs.config({
         'addfavorite': 'common/addfavorite/1.0.0/addfavorite',
         'avatar': 'common/avatar/1.0.0/avatar',
 
+        // tpl
+        'register': 'tpl/register/1.0.0/register',
+        'login': 'tpl/login/1.0.0/login',
+        'information': 'tpl/information/1.0.0/information',
+        'password': 'tpl/password/1.0.0/password',
+        'findpwd': 'tpl/findpwd/1.0.0/findpwd',
+
         // debug
         'seajs-debug': 'seajs/2.1.1/seajs-debug'
 
@@ -120,7 +127,7 @@ seajs.config({
         }
     },
 
-    //comboMaxLength: 1000,
+    comboMaxLength: 1000,
 
     // 文件编码
     charset: 'utf-8'

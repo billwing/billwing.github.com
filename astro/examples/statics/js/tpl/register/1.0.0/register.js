@@ -1,4 +1,4 @@
-define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "mobilecode", "moment"], function(require, exports, module) {
+define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "mobilecode", "moment", "autocomplete"], function(require, exports, module) {
 
     var $ = require('$');
 
@@ -27,6 +27,9 @@ define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "url
             element: userRegForm,
             autoSubmit: false
         });
+
+        exports.userRegVal = userRegVal;
+
         userRegVal.addItem({
             element: '[name=account]',
             required: true,
@@ -62,6 +65,9 @@ define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "url
             element: mobiRegForm,
             autoSubmit: false
         });
+
+        exports.mobiRegVal = mobiRegVal;
+
         mobiRegVal.addItem({
             element: '[name=mobile]',
             required: true,
@@ -95,6 +101,9 @@ define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "url
             element: mailRegForm,
             autoSubmit: false
         });
+
+        exports.mailRegVal = mailRegVal;
+        
         mailRegVal.addItem({
             element: '[name=email]',
             required: true,
@@ -110,6 +119,24 @@ define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "url
             required: true,
             rule: 'confirmation{target: "#J-mailRegPwd"}'
         });
+
+        // autocomplete email
+        var AutoComplete = require('autocomplete');
+        var emailSuffix = ['qq.com', '126.com', '163.com', '139.com', 'sina.com', 'sohu.com', 'yahoo.com', 'gmail.com'];
+        var mailAutoInp = new AutoComplete({
+            trigger: '#J-mailRegAcc',
+            submitOnEnter: false,
+            dataSource: function(query) {
+                var a = $.map(emailSuffix, function(v, i) {
+                    return query + '@' + v;
+                });
+                return a;
+            },
+            filter: '',
+            inputFilter: function(v){
+                return v.replace(/^(.*)@.*$/,'$1');
+            }
+        }).render();
 
         mailRegForm.submit(function() {
             Util.userAsync($(this), UrlConfig.registerByEmail_url);

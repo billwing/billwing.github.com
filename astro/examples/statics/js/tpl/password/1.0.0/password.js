@@ -18,6 +18,9 @@ define("tpl/password/1.0.0/password", ["$", "util", "urlconfig", "validatorrules
             element: passwordForm,
             autoSubmit: false
         });
+
+        exports.pwdManaVal = pwdManaVal;
+
         pwdManaVal.addItem({
             element: '[name=old_pwd]',
             required: true,
