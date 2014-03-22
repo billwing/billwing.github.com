@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="http://static.n8n8.cn/Public/Images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="http://s.n8n8.cn/Css/tpl/common/1.0.0/common.css">
-    <link rel="stylesheet" href="http://s.n8n8.cn/Css/tpl/login/1.0.0/login.css">
+    <!-- <link rel="stylesheet" href="http://s.n8n8.cn/Css/tpl/login/1.0.0/login.css"> -->
+    <link rel="stylesheet" href="../../statics/css/tpl/login/1.0.0/login.css">
 </head>
 
 <body>
@@ -50,9 +51,9 @@
         <div class="ui-box-container">
             <div class="ui-box-content fn-clear">
                 <div class="log-ban fn-left">
-                    <a href="#" target="_blank"><img class="log-ban-img" src="http://placehold.it/480x270"></a>
+                    <a href="#" target="_blank"><img class="log-ban-img" src="http://placehold.it/450x360"></a>
                 </div>
-                <div class="log-box fn-right">
+                <div class="log-box fn-left">
                     <form id="J-loginForm" class="ui-form" action="#" method="post" name="loginForm">
                         <div class="ui-form-item">
                             <label for="J-loginAcc" class="ui-label">账号：</label>
@@ -67,8 +68,16 @@
                         </div>
 
                         <div class="ui-form-item">
+                            <label for="J-logImgCode" class="ui-label">验证码：</label>
+                            <input id="J-logImgCode" class="imgcode-inp ui-input" type="text" autocomplete="off" maxlength="4" name="img_code" placeholder="请输入验证码" title="请输入图片验证码" />
+                            <a class="imgcode-btn" href="javascript:;" title="点击换一张" onclick="this.firstChild.src='index.php?m=system&c=index&a=imgcode&t=' + Math.random();return false;"><img class="imgcode-img" src="http://u.n8n8.cn/User/index.php?m=Mobi&a=getVerCode">看不清？换一张</a>
+                            <div class="ui-form-explain"></div>
+                        </div>
+
+                        <div class="ui-form-item">
                             <label for="J-loginAuto" class="aut-lab"><input id="J-loginAuto" class="aut-inp" type="checkbox" checked="checked" name="logauto" />下次自动登录</label>
                             <a class="for-lnk" href="#">忘记密码？</a>
+                            <div class="ui-form-explain"></div>
                         </div>
 
                         <div class="ui-form-item">
