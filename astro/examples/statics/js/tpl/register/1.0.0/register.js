@@ -1,4 +1,4 @@
-define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "mobilecode", "moment", "autocomplete"], function(require, exports, module) {
+define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "urlconfig", "validatorrules", "mobilecode", "emailcode", "moment", "autocomplete"], function(require, exports, module) {
 
     var $ = require('$');
 
@@ -19,6 +19,9 @@ define("tpl/register/1.0.0/register", ["$", "dialog", "confirmbox", "util", "url
 
     // mobilecode
     var MobileCode = require('mobilecode');
+
+    // emailcode
+    var EmailCode = require('emailcode');
 
     // 用户注册
     var userRegForm = $('#J-userRegForm');

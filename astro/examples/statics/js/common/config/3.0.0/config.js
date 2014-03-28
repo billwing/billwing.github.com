@@ -60,6 +60,7 @@ seajs.config({
         'urlconfig': 'common/urlconfig/1.0.0/urlconfig',
         'validatorrules': 'common/validatorrules/1.0.0/validatorrules',
         'mobilecode': 'common/mobilecode/1.0.0/mobilecode',
+        'emailcode': 'common/emailcode/1.0.0/emailcode',
         'jzloginpopup': 'common/jzlogin/1.0.0/jzloginpopup',
         'jzim': 'common/jzim/3.0.0/jzim',
         'jiathis': 'common/jiathis/1.0.0/jiathis',
