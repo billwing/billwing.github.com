@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HTML5 Notification</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<p>HTML5 Notification Test</p>
+<input type="button" onclick="notifyOpen()" value="打开桌面通知">
+<input type="button" onclick="notifyClose()" value="关闭桌面通知">
+
+<script>
+    var notification;
+    function notifyOpen() {
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      } else if (Notification.permission === "granted") {
+        notification = new Notification("通知标题", {icon: "http://www.jingzhuan.cn/Public/Images/jz/favicon.ico", body: "通知内容通知内容通知内容通知内容通知内容通知内容通知内容"});
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission(function (permission) {
+          if(!('permission' in Notification)) {
+            Notification.permission = permission;
+          }
+
+          if (permission === "granted") {
+            notification = new Notification("Hi there!");
+          }
+        });
+      }
+    }
+
+    function notifyClose() {
+        if(notification) {
+            notification.close();
+            notification.onclose = function() {
+                alert('Closed!');
+            }
+        }
+    }
+
+</script>
+
+</body>
+</html>
