@@ -23,7 +23,7 @@
     var notification;
     function notifyOpen() {
       if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
+        alert("很抱歉，您的浏览器不支持桌面通知功能！");
       } else if (Notification.permission === "granted") {
         notification = new Notification("通知标题", {icon: "http://www.jingzhuan.cn/Public/Images/jz/favicon.ico", body: "通知内容通知内容通知内容通知内容通知内容通知内容通知内容"});
       } else if (Notification.permission !== 'denied') {
@@ -36,6 +36,8 @@
             notification = new Notification("Hi there!");
           }
         });
+      } else {
+        alert('请检查您是否拒绝了该域名的桌面通知，或者咨询管理员！')
       }
     }
 
