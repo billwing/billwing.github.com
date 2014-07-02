@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JS Test</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<p>JS Test</p>
+<input type="button" onclick="askUserName()" value="点击试一试">
+
+<script>
+    function askUserName() {
+        var userName = prompt('What\'s your name?', 'Your name');
+        if(userName && userName != 'Your name') {
+            alert('Hello, ' + userName + '!');
+        } else {
+            alert('Enter your name, please~')
+        }
+    }
+</script>
+
+</body>
+</html>
